@@ -1,0 +1,142 @@
+\documentclass[aspectratio=169]{beamer}
+\usetheme{Madrid}
+
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+%\usepackage{subfig}
+\usepackage{subcaption}
+
+%\setbeamertemplate{footline}[frame number]
+
+\begin{document}
+
+\title{Exploratory Data Analysis (EDA)}
+\subtitle{Understanding Your Data Before Modeling}
+\author[J.I. Vasquez]{\textbf{Juan Irving Vásquez} \\jivg.org}
+\date{\today \copyright}
+\institute[jivg.org]{Centro de Innovación y Desarrollo Tecnológico en Cómputo \\ Instituto Politécnico Nacional}
+\titlegraphic{\includegraphics[width=2cm]{ipn-cidetec}}
+%{ 	\usebackgroundtemplate{\includegraphics[width=1\paperwidth]{markus-winkler-afW1hht0NSs-unsplash}}%
+\frame{\titlepage}
+%}
+
+\frame{
+	\frametitle{Contents}
+	\tableofcontents
+}
+
+\AtBeginSection[] { \begin{frame} \frametitle{Roadmap} \tableofcontents[currentsection] \end{frame} }
+
+
+% Slide 2
+\begin{frame}{The EDA}
+  \begin{itemize}
+    \item Exploratory Data Analysis (EDA) is the process of analyzing datasets to summarize their main characteristics.
+    \item It often involves visual methods and descriptive statistics.
+    \item \textbf{Goal:} Gain insights, detect patterns, spot anomalies, and test assumptions.
+  \end{itemize}
+\end{frame}
+
+
+% Slide 3
+\begin{frame}{EDA importance}
+  \begin{itemize}
+    \item Understand the structure of the data.
+    \item Detect missing values, outliers, or errors.
+    \item Discover relationships between variables.
+    \item Choose the right modeling approach.
+    \item Guide feature engineering.
+  \end{itemize}
+\end{frame}
+
+% Slide 4
+\begin{frame}{Types of Data to Explore}
+  \begin{itemize}
+    \item \textbf{Numerical Variables:} e.g., height, income.
+    \item \textbf{Categorical Variables:} e.g., gender, country.
+    \item \textbf{Time-Series Data}
+    \item \textbf{Text or Image Data}
+  \end{itemize}
+  \vspace{0.3cm}
+  Each type requires different techniques for exploration.
+\end{frame}
+
+% Slide 5
+\begin{frame}{Descriptive Statistics}
+  \begin{itemize}
+    \item \textbf{Central tendency:} Mean, Median, Mode
+    \item \textbf{Dispersion:} Variance, Standard Deviation, Range
+    \item \textbf{Distribution shape:} Skewness, Kurtosis
+    \item \textbf{Tip:} Use \texttt{df.describe()} in Pandas to summarize data.
+  \end{itemize}
+\end{frame}
+
+% Slide 6
+\begin{frame}{Visualizing Data – Univariate Analysis}
+  \begin{itemize}
+    \item \textbf{Histograms:} visualize distributions
+    \item \textbf{Boxplots:} detect outliers
+    \item \textbf{Bar charts:} show category frequencies
+  \end{itemize}
+  \vspace{0.3cm}
+  Helps in understanding single-variable behavior.
+\end{frame}
+
+% Slide 7
+\begin{frame}{Visualizing Data – Multivariate Analysis}
+  \begin{itemize}
+    \item \textbf{Scatter plots:} for correlations
+    \item \textbf{Heatmaps:} of correlation matrices
+    \item \textbf{Grouped boxplots:} compare distributions across categories
+  \end{itemize}
+  \vspace{0.3cm}
+  Helps in finding relationships between variables.
+\end{frame}
+
+% Slide 8
+\begin{frame}{Dealing with Missing Data \& Outliers}
+  \begin{itemize}
+    \item Detect missing values using \texttt{isnull()}
+    \item Handle by:
+    \begin{itemize}
+      \item Removing rows
+      \item Imputing (mean, median, model-based)
+    \end{itemize}
+    \item Detect outliers using:
+    \begin{itemize}
+      \item Boxplots, z-scores, or IQR method
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+% Slide 9
+\begin{frame}{Common Pitfalls to Avoid}
+  \begin{itemize}
+    \item Ignoring data types (e.g., treating categorical as numerical)
+    \item Overlooking missing data
+    \item Relying too much on automatic plots without interpretation
+    \item Jumping to modeling without EDA
+  \end{itemize}
+\end{frame}
+
+% Slide 10
+\begin{frame}{Conclusion \& Tools for EDA}
+  \begin{itemize}
+    \item EDA is a critical first step in data science.
+    \item It shapes your understanding and decisions.
+    \item \textbf{Tools:}
+    \begin{itemize}
+      \item Python (Pandas, Seaborn, Matplotlib)
+      \item R (ggplot2, dplyr)
+      \item Notebooks (Jupyter, RMarkdown)
+    \end{itemize}
+  \end{itemize}
+  \vspace{0.3cm}
+  \textit{“Look at your data before you model it.”}
+\end{frame}
+
+\end{document}
+
