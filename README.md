@@ -20,17 +20,6 @@ diapositivas_redes_neuronales/
 └── README.md
 ```
 
-### Ramas
-
-| Rama | Uso |
-|------|-----|
-| `main` | Contenido curado (rama por defecto) |
-| `develop` | Trabajo en curso |
-
-Flujo: editar en `develop` → cuando la lección esté lista → merge a `main`.
-
----
-
 ## Lecciones
 
 Cada fila enlaza al PDF de la presentación.
@@ -89,6 +78,6 @@ bash scripts/clean.sh
 
 ---
 
-## Licencia y uso
+## Licencia
 
-Materiales de apoyo para el curso en el IPN. Consulta al instructor antes de redistribuir o reutilizar fuera del contexto académico del curso.
+Este material se distribuye bajo la [licencia BSD 3-Clause](LICENSE).
