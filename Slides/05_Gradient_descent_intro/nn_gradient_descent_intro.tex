@@ -42,7 +42,18 @@
 		\item Provides no meaningful update when classes are not separable.
 	\end{itemize}
 	
-	\vspace{0.6em}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.5\textheight]{learning_rule}
+	\caption{$w = w + \eta(y -  \hat{y})$}
+	\label{fig:learningrule}
+\end{figure}
+	
+\end{frame}
+
+
+\begin{frame}{From Rosenblatt's Rule to Gradient Descent (2)}
+
 	\textbf{Why Gradient Descent?}
 	\begin{itemize}
 		\item Defines an explicit \emph{loss function} $L(\bm{w})$ (e.g., squared error, cross-entropy).
@@ -56,6 +67,7 @@
 	
 	\textbf{Key insight:} Gradient descent generalizes Rosenblatt’s idea, moving from “correction by mistake” to “optimization by minimizing a loss.”
 \end{frame}
+
 
 
 \section{Gradient}
@@ -77,7 +89,6 @@
 
 \frame{
 	\frametitle{Gradient}
-	
 	\begin{itemize}
 	\item It is a vector valued function. 
 	$$y = f(w_1,w_2, \times, w_n)$$
@@ -87,19 +98,27 @@
 	\dots \\
 	\frac{\partial f}{ \partial w_n}
 	\end{array}  \right] $$
-	\pause
-	\item Example	
-	$$f(x,y) = \left[ \begin{array}{c}  xy \\ xy \end{array}  \right] $$
-	$$\nabla f = ?$$
-	\pause
-	$$\nabla f = \left[ \begin{array}{c}
-	y\\ 
-	x
-	\end{array}  \right] $$
-	\item A nice explanation: khanacademy.org/.../gradient
-	
 	\end{itemize}
+\begin{center}
+	\includegraphics[height=0.4\textheight]{../../../../../Downloads/Gemini_Generated_Image_ym00p0ym00p0ym00}
+\end{center}
 }
+
+
+\begin{frame}
+	\frametitle{Gradient}
+	\begin{itemize}
+			\item Example	
+		$$f(x,y) = \left[ \begin{array}{c}  xy \\ xy \end{array}  \right] $$
+		$$\nabla f = ?$$
+		\pause
+		$$\nabla f = \left[ \begin{array}{c}
+			y\\ 
+			x
+		\end{array}  \right] $$
+			\item A nice explanation: khanacademy.org/.../gradient
+	\end{itemize}
+\end{frame}
 
 
 \begin{frame}{Summary: Fundamental Differentiation Rules}
@@ -139,9 +158,8 @@
 
 \section{Gradient descent}
 
-
 \begin{frame}
-\frametitle{Gradiente descent}
+\frametitle{Gradient descent}
 \begin{itemize}
 	\item Goal. Minimize a differentiable objective
 	\[
@@ -160,6 +178,7 @@
 	\begin{frame}{Idea}
 
 		\textbf{Geometric intuition.}
+		$$y = \theta^2$$
 		\begin{center}
 			\begin{tikzpicture}[scale=0.9]
 				% axes
@@ -214,12 +233,12 @@
 			\item For general non-convex $f$, GD decreases $f$ and often converges to a \emph{stationary point} where $\|\nabla f\|$ is small.
 		\end{itemize}
 		
-		\textbf{Practical tips}
-		\begin{itemize}
-			\item \textit{Scale features / normalize inputs} to reduce pathological curvature.
-			\item Monitor $f(\bm{\theta}_t)$ and $\|\nabla f(\bm{\theta}_t)\|$.
-			\item Check for too-large $\eta$ (divergence/oscillation) or too-small $\eta$ (slow progress).
-		\end{itemize}
+		%\textbf{Practical tips}
+		%\begin{itemize}
+		%	\item \textit{Scale features / normalize inputs} to reduce pathological curvature.
+		%	\item Monitor $f(\bm{\theta}_t)$ and $\|\nabla f(\bm{\theta}_t)\|$.
+		%	\item Check for too-large $\eta$ (divergence/oscillation) or too-small $\eta$ (slow progress).
+		%\end{itemize}
 	\end{frame}
 
 
