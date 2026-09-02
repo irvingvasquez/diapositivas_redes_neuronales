@@ -495,6 +495,58 @@
 \end{frame}
 
 
+% 7. Data augmentation (motivation and definition)
+
+\begin{frame}
+	\frametitle{Data Augmentation}
+	\begin{itemize}
+		\item Artificially increases the size and diversity of the training set by generating new examples from the existing ones.
+		\item Acts as a regularizer: it reduces overfitting and improves generalization, especially with small datasets.
+		\item New samples are created by applying label-preserving transformations:
+		\begin{equation}
+			\mathbf{x}' \;=\; A(\mathbf{x};\,\boldsymbol{\phi}),
+			\qquad
+			y' = y
+		\end{equation}
+		$$
+		\boldsymbol{\phi} \sim p(\boldsymbol{\phi})
+		$$
+		\small Parameters $\boldsymbol{\phi}$ (e.g., rotation angle, noise level) are sampled randomly at training time. Unlike preprocessing, augmentation is applied \textbf{only to the training set}, never to validation/test data.
+	\end{itemize}
+\end{frame}
+
+% 8. Data augmentation (common techniques)
+
+\begin{frame}
+	\frametitle{Data Augmentation}
+	\framesubtitle{Common techniques}
+	\begin{itemize}
+		\item \textbf{Geometric transforms:} rotation, translation, scaling, horizontal/vertical flips, cropping.
+		\item \textbf{Photometric transforms:} brightness, contrast, saturation changes, color jittering.
+		\item \textbf{Noise injection:} adding Gaussian noise,
+		\begin{equation}
+			\mathbf{x}' = \mathbf{x} + \boldsymbol{\epsilon},
+			\qquad
+			\boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \sigma^2 \mathbf{I})
+		\end{equation}
+		\item \textbf{Erasing/occlusion:} randomly masking regions of the input (random erasing, cutout).
+		\item {\small Transformations must preserve the label: e.g., a vertical flip may be invalid for letters ('A' vs '$\forall$') or digits ('6' vs '9').}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Reading and writing}
+	
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{1-89}
+	\caption{Rotations and transforms}
+	\label{fig:1-89}
+\end{figure}
+\end{frame}
+
+
 \frame{
 \frametitle{Model capacity selection}
 \begin{figure}
