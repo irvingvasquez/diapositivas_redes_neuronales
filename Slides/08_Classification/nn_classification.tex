@@ -441,10 +441,14 @@ $$D(S,L)$$
 	\frametitle{Cross Entropy}
 	\framesubtitle{Loss function}
 	\begin{itemize}
-		\item Measures the distance between two probability vectors
+		\item Measures the distance between two probability vectors:
 		\begin{equation}
 			D(S,L) = - \sum_{i} l_i \log (s_i)
-		\end{equation} where $L$ is the target label.
+		\end{equation} where $L$ is the target label and $S$ the softmax.
+		\item For $N$ examples:
+		\begin{equation}
+			D(S,L) = - \frac{1}{N}\sum_{\mu} \sum_{i} l_i^{\mu} \log (s_i^{\mu})
+		\end{equation}
 		\item Substitution
 			$$D(S(f(XW+B)),L)$$
 		\item $D(S,L) \neq D(L,S)$

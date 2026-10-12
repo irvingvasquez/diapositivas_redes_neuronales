@@ -244,7 +244,7 @@
 
 \frame{
 	\frametitle{Gradient descent}
-	\framesubtitle{Simplification Rule}
+	\framesubtitle{by Imcrements Method}
 	\begin{itemize}
 		\item The gradient of the error function
 		\begin{equation}
@@ -252,9 +252,10 @@
 		\end{equation}
 		\item Error term
 		\begin{equation}
-			\delta= (y-\hat{y})f' (h) = (y-\hat{y})f' (\sum_i w_i x_i)
+			\delta= (y-\hat{y})f' (h) 
+			%= (y-\hat{y})f' (\sum_i w_i x_i)
 		\end{equation}
-		\item Weight step 
+		\item Weight step (Increment)
 		\begin{equation}
 			\Delta w_i= \eta \delta x_i
 		\end{equation}
@@ -379,7 +380,7 @@
 		\item Prediction 
 		\begin{equation}
 		\hat{y}_{j}^{\mu} = f\left( \sum_i w_{i,j}
-			 x_i + b \right)  
+			 x_i + b_j \right)  
 		\end{equation}
 		\item Sum of squared errors (SSE)
 		\begin{equation}
