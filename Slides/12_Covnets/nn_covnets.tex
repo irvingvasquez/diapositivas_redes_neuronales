@@ -369,8 +369,8 @@ The convolutional neural networks were introduced by LuCun in 1989.
 		\item The stride is defined by $s$
 		\item The output feature width size is then:
 		\begin{equation}
-			o = \lfloor \frac{i - k}{s} \rfloor + 1
-		\end{equation} where $i$ is the input, $k$ the kernel size, $o$ is the output size,
+			o = \lfloor \frac{m - k}{s} \rfloor + 1
+		\end{equation} where $m$ is the input, $k$ the kernel size, $o$ is the output size,
 		\item The same applies for height
 	\end{itemize}
 \end{frame}
@@ -379,22 +379,19 @@ The convolutional neural networks were introduced by LuCun in 1989.
 
 \begin{frame}
 \frametitle{CNN Padding}
-\begin{itemize}
 	\centering
-	\item Valid padding:\\	
-	\includegraphics[trim={0 1cm 0 10cm}, clip, height=0.35\textheight]{valid}
-	\item Same padding adds zeros\\
-	\includegraphics[trim={0 1cm 0 10cm}, clip, height=0.35\textheight]{same_padding}
-\end{itemize}
+	%\begin{figure}
+	\includegraphics[height=0.8\textheight]{figures/padding}
+	%\end{figure}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{CNN Padding}
 \framesubtitle{Padding output arithmetic}
-For any $i$, $k$, $p$ and $s$:
+For any input ($m$), kernel size ($k$), padding ($p$) and stride ($s$):
 \begin{equation}
-	o = \lfloor \frac{i + 2p - k}{s} \rfloor + 1
+	o = \lfloor \frac{m + 2p - k}{s} \rfloor + 1
 \end{equation}
 \end{frame}
 
@@ -402,7 +399,7 @@ For any $i$, $k$, $p$ and $s$:
 \begin{frame}
 	\frametitle{Convolution layer with several kernels}
 	\begin{itemize}
-		\item A convolutional layer can apply several kernels to the same input.
+		\item A convolutional layer can apply several ($d$) kernels to the same input.
 		\item The output of each convolution is stack in the feature map.
 	\end{itemize}
 	\begin{figure}
@@ -422,11 +419,11 @@ For any $i$, $k$, $p$ and $s$:
 \centering
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline 
-	Padding & p & Stride (s) & Width & Height & Depth \\ 
+	Padding & p & Stride (s) & Depth & Width & Height \\ 
 	\hline 
 	valid & 0 & 1 &  &  &  \\ 
 	\hline 
-	same & & 1 & 28 & 28 &  \\ 
+	same & & 1 &  & 28 & 28 \\ 
 	\hline 
 	valid & 0 & 2 &  &  &  \\ 
 	\hline 
@@ -449,7 +446,7 @@ For any $i$, $k$, $p$ and $s$:
 \begin{frame}
 \frametitle{Pooling}
 \begin{itemize}
-\item Given $i$, $v$ and $s$, the output size is
+\item Given input ($i$), window ($v$) and stride ($s$), the output size is
 \begin{equation}
 	o = \lfloor \frac{i - v}{s} \rfloor + 1
 \end{equation}
