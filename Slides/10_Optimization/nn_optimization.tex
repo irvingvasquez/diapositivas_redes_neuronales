@@ -304,142 +304,6 @@ f(x, y) = x^2 + y^2
 \end{frame}
 
 
-
-%\frame{
-%\frametitle{Learning Rate Decay}
-%\begin{center}
-%\includegraphics[width=\linewidth]{./lrdecay}
-%\end{center}
-%}
-
-
-
-
-
-
-%\frame{
-%	\frametitle{SGD - Momentum}
-%	\pause
-%	\begin{center}
-%		\includegraphics[height=0.7\textheight]{optimization-meme}
-%	\end{center}
-%}
-
-
-\section{Adaptative gradient}
-
-
-\begin{frame}
-	\frametitle{Motivation}
-\begin{figure}
-	\centering
-	\includegraphics[height=0.7\textheight]{WEB_BEAR}
-	\caption{Which are infrecuent features?}
-	\label{fig:webbear}
-\end{figure}
-\end{frame}
-
-	
-\begin{frame}
-		\frametitle{Optimizing for infrecuent features: Adagrad}
-		
-		\begin{itemize}
-			\item The core problem: The learning rate decays too quickly for infrequent features (which need more updates) or too slowly for common features.
-			
-			\item Adagrad (Duchi et al., 2011) addresses this by providing an adaptive, per-parameter learning rate.
-			
-			\item Instead of using a crude update counter ($n_i$), Adagrad scales the learning rate for each parameter using the accumulated \textit{sum of the squares of its past gradients}.
-			
-			\item This mechanism automatically reduces the learning rate for parameters with large, frequent gradients and maintains a higher rate for parameters with small, infrequent gradients.
-		\end{itemize}
-\end{frame}
-
-
-
-\frame{
-\frametitle{AdaGrad \footnote{\scriptsize Duchi, John, Elad Hazan, and Yoram Singer. “Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.” Journal of Machine Learning Research 12.Jul (2011): 2121-2159}}
-\framesubtitle{Accumulation of gradients}
-\begin{itemize}
-	\item Adapts gradient over time using an accumulation of the historical gradients
-	\item Initialization
-	\begin{equation}
-		r_0 = 0 	
-	\end{equation}
-	\item Accumulate the square of the gradients
-	\begin{equation}
-		r_i = r_{i-1} + g_i \odot g_i	
-	\end{equation}
-	\item Update
-	\begin{equation}
-		w_i = w_{i-1} - \frac{\eta}{k \oplus \sqrt{r_i}} \odot g_i
-	\end{equation}
-	where $k\approx 10^{
-	-7}$ 
-\end{itemize}
-}
-
-
-\frame{
-\frametitle{RMSProp \footnote{\scriptsize Tieleman, T., \& Hinton, G. (2012). Rmsprop: Divide the gradient by a running average of its recent magnitude. Neural networks for machine learning. 17, 6.}}
-\begin{itemize}
-	\item RMSprop (Root Mean Square Propagation) improves over Adagrad.
-	\item Adagrad + momentum
-	\item Discards old measurements with $\rho$
-	\begin{equation}
-		r_i = \rho r_
-		{i-1} + (1-\rho) g_i \odot g_i
-	\end{equation}
-	where $\rho$ determines how long we keep old gradients
-	\item Update
-	\begin{equation}
-		w_i = w_{i-1} - \frac{\eta}{\sqrt{k \oplus r_i}} \odot g_i
-	\end{equation}
-	where $k\approx 10^{-7}$ 
-\end{itemize}
-}
-
-
-\frame{
-\frametitle{Adam \footnote{\scriptsize Adam, Kingma DP Ba J. "A method for stochastic optimization." arXiv preprint arXiv:1412.6980 1412.6 (2014).}}
-\begin{itemize}
-	\item Exponentially weighted moving average of the gradient (first momentum)
-	\begin{equation}
-		m_i = \beta_1 m_{i-1} + (1-\beta_1) g_i
-	\end{equation}
-	\item Moving average of the historical gradients (second momentum)
-	\begin{equation}
-		v_i = \beta_2 v_{i-1} + (1-\beta_2) g_i \odot g_i	
-	\end{equation}
-	\item Correction
-	$$\tilde{m}_i =\frac{m_i}{1-\beta_1^i}$$
-	$$\tilde{v}_i = \frac{v_i}{1-\beta_2^i}$$
-	\item Update
-	$$w_i = w_{i-1} - \frac{\eta}{k \oplus \sqrt{\tilde{v}_i}}\tilde{m}_i$$
-\end{itemize}
-}
-
-
-\frame{
-	\frametitle{Gradient Clipping}
-	\begin{itemize}
-		\item Prevents exploding gradients during backpropagation.
-		\item Clip gradients to a threshold value:
-		\begin{equation}
-			\text{if } \|g\| > \tau, \quad g \leftarrow \tau \cdot \frac{g}{\|g\|}
-		\end{equation}
-		\item Especially useful in RNNs and deep networks.
-	\end{itemize}
-}
-
-
-\frame{
-\frametitle{What about the learning rate?}
-\begin{center}
-	\includegraphics[height=0.8\textheight]{tip}
-\end{center}
-}
-
-
 \section{Learning rate estimation}
 
 
@@ -485,6 +349,148 @@ f(x, y) = x^2 + y^2
 		\label{fig:d}
 	\end{figure}
 }
+
+
+\section{Adaptative gradient}
+
+
+\begin{frame}
+	\frametitle{Motivation}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.7\textheight]{WEB_BEAR}
+	\caption{Which are infrecuent features?}
+	\label{fig:webbear}
+\end{figure}
+\end{frame}
+
+	
+\begin{frame}
+		\frametitle{Optimizing for infrecuent features: Adagrad}
+		
+		\begin{itemize}
+			\item The core problem: The learning rate decays too quickly for infrequent features (which need more updates) or too slowly for common features.
+			
+			\item Adagrad (Duchi et al., 2011) addresses this by providing an adaptive, per-parameter learning rate.
+			
+			\item Instead of using a crude update counter ($n_i$), Adagrad scales the learning rate for each parameter using the accumulated \textit{sum of the squares of its past gradients}.
+			
+			\item This mechanism automatically reduces the learning rate for parameters with large, frequent gradients and maintains a higher rate for parameters with small, infrequent gradients.
+		\end{itemize}
+\end{frame}
+
+
+\frame{
+	\frametitle{Gradient Clipping}
+	\begin{itemize}
+		\item Prevents exploding gradients during backpropagation.
+		\item Clip gradients to a threshold value:
+		\begin{equation}
+			\text{if } \|g\| > \tau, \quad g \leftarrow \tau \cdot \frac{g}{\|g\|}
+		\end{equation}
+		\item Especially useful in RNNs and deep networks.
+	\end{itemize}
+}
+
+
+\frame{
+	\frametitle{Gradient Clipping}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.7\textheight]{grad_clipping}
+	\caption{Example of gradient clipping implementation.}
+	\label{fig:gradclipping}
+\end{figure}
+
+}
+
+
+
+\frame{
+\frametitle{AdaGrad \footnote{\scriptsize Duchi, John, Elad Hazan, and Yoram Singer. “Adaptive Subgradient Methods for Online Learning and Stochastic Optimization.” Journal of Machine Learning Research 12.Jul (2011): 2121-2159}}
+\framesubtitle{Accumulation of gradients}
+\begin{itemize}
+	\item Adapts gradient over time using an accumulation of the historical gradients
+	\item Initialization
+	\begin{equation}
+		r_0 = 0 	
+	\end{equation}
+	\item Accumulate the square of the gradients
+	\begin{equation}
+		r_i = r_{i-1} + g_i \odot g_i	
+	\end{equation}
+	\item Update
+	\begin{equation}
+		w_i = w_{i-1} - \frac{\eta}{k \oplus \sqrt{r_i}} \odot g_i
+	\end{equation}
+	where $k\approx 10^{
+	-7}$ 
+\end{itemize}
+}
+
+
+\frame{
+	\frametitle{AdaGrad}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.7\textheight]{adagrad}
+	\caption{Example of the AdaGrad implementation}
+	\label{fig:adagrad}
+\end{figure}
+}
+
+
+\frame{
+\frametitle{RMSProp \footnote{\scriptsize Tieleman, T., \& Hinton, G. (2012). Rmsprop: Divide the gradient by a running average of its recent magnitude. Neural networks for machine learning. 17, 6.}}
+\begin{itemize}
+	\item RMSprop (Root Mean Square Propagation) improves over Adagrad.
+	\item Adagrad + momentum
+	\item Discards old measurements with $\rho$
+	\begin{equation}
+		r_i = \rho r_
+		{i-1} + (1-\rho) g_i \odot g_i
+	\end{equation}
+	where $\rho$ determines how long we keep old gradients
+	\item Update
+	\begin{equation}
+		w_i = w_{i-1} - \frac{\eta}{\sqrt{k \oplus r_i}} \odot g_i
+	\end{equation}
+	where $k\approx 10^{-7}$ 
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Adam \footnote{\scriptsize Adam, Kingma DP Ba J. "A method for stochastic optimization." arXiv preprint arXiv:1412.6980 1412.6 (2014).}}
+\begin{itemize}
+	\item Exponentially weighted moving average of the gradient (first momentum)
+	\begin{equation}
+		m_i = \beta_1 m_{i-1} + (1-\beta_1) g_i
+	\end{equation}
+	\item Moving average of the historical gradients (second momentum)
+	\begin{equation}
+		v_i = \beta_2 v_{i-1} + (1-\beta_2) g_i \odot g_i	
+	\end{equation}
+	\item Correction
+	$$\tilde{m}_i =\frac{m_i}{1-\beta_1^i}$$
+	$$\tilde{v}_i = \frac{v_i}{1-\beta_2^i}$$
+	\item Update
+	$$w_i = w_{i-1} - \frac{\eta}{k \oplus \sqrt{\tilde{v}_i}}\tilde{m}_i$$
+\end{itemize}
+}
+
+
+
+
+\frame{
+\frametitle{What about the learning rate?}
+\begin{center}
+	\includegraphics[height=0.8\textheight]{tip}
+\end{center}
+}
+
+
+
 
 
 \frame{
