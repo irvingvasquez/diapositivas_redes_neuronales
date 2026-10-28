@@ -308,6 +308,14 @@ f(x, y) = x^2 + y^2
 
 
 \frame{
+	\frametitle{What about the learning rate?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{tip}
+	\end{center}
+}
+
+
+\frame{
 	\frametitle{Warm-up Strategy}
 	\begin{itemize}
 		\item Warm-up gradually increases the learning rate during the initial training phase \footnote{\scriptsize Kalra, Dayal Singh, and Maissam Barkeshli. "Why warmup the learning rate? underlying mechanisms and improvements." Advances in Neural Information Processing Systems 37 (2024): 111760-111801.}.
@@ -370,6 +378,8 @@ f(x, y) = x^2 + y^2
 		
 		\begin{itemize}
 			\item The core problem: The learning rate decays too quickly for infrequent features (which need more updates) or too slowly for common features.
+			
+			\item First add gradient clippling.
 			
 			\item Adagrad (Duchi et al., 2011) addresses this by providing an adaptive, per-parameter learning rate.
 			
@@ -482,12 +492,7 @@ f(x, y) = x^2 + y^2
 
 
 
-\frame{
-\frametitle{What about the learning rate?}
-\begin{center}
-	\includegraphics[height=0.8\textheight]{tip}
-\end{center}
-}
+
 
 
 
