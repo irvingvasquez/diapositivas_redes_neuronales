@@ -40,6 +40,7 @@ Cada fila enlaza al PDF de la presentación.
 | 10 | Estrategias de optimización | [`10_Optimization`](Slides/10_Optimization) | [PDF](Slides/10_Optimization/nn_optimization.pdf) |
 | 11 | Diseño de experimentos (DOE) | [`11_DoE`](Slides/11_DoE) | [PDF](Slides/11_DoE/nn_DoE.pdf) |
 | 12 | Redes convolucionales (CNN) | [`12_Covnets`](Slides/12_Covnets) | [PDF](Slides/12_Covnets/nn_covnets.pdf) |
+| 12 | Convolución transpuesta | [`12_Covnets`](Slides/12_Covnets) | [PDF](Slides/12_Covnets/nn_transp_conv.pdf) |
 | 13 | CNN avanzadas / detección YOLO | [`13_Advanced_CNN`](Slides/13_Advanced_CNN) | [PDF](Slides/13_Advanced_CNN/cv2_08_advanced_nn_yolo.pdf) |
 | 14 | Análisis exploratorio de datos (EDA) | [`14_EDA`](Slides/14_EDA) | [PDF](Slides/14_EDA/nn_eda.pdf) |
 | 15 | Transfer learning | [`15_Transfer_Learning`](Slides/15_Transfer_Learning) | [PDF](Slides/15_Transfer_Learning/nn_transfer_learning.pdf) |

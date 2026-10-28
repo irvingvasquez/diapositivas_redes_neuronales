@@ -504,6 +504,22 @@ For any input ($m$), kernel size ($k$), padding ($p$) and stride ($s$):
 \end{frame}
 
 
+\section{Transposed convolution}
+
+\begin{frame}
+	\frametitle{Next: transposed convolution}
+	\begin{itemize}
+		\item Convolution reduces the spatial size of the feature map.
+		\item To recover resolution we use a transposed convolution, $G \star\star W$.
+		\item It is not the numerical inverse of $I \star K$.
+		\item Full lecture: \texttt{nn\_transp\_conv.pdf}
+	\end{itemize}
+	\begin{center}
+		\includegraphics[height=0.32\textheight]{tranpconv}
+	\end{center}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{References}
 \begin{itemize}
