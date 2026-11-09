@@ -7,6 +7,7 @@ Diapositivas del curso **Redes Neuronales y Aprendizaje Profundo** (Ingeniería 
 | **Instructor** | Juan Irving Vásquez Gómez |
 | **Contacto** | jvasquezg@ipn.mx · [jivg.org](https://jivg.org) |
 | **Temario oficial** | [UA IIA 2020](https://www.escom.ipn.mx/docs/oferta/uaIIA2020/redesNeuronalesAprendizajeProfundo_IIA2020.pdf) |
+| **Temario del contenido** | [Contenido/temario.md](Contenido/temario.md) |
 | **Evaluación** | 60% tareas y exposiciones · 40% exámenes (3) |
 
 ---
@@ -15,6 +16,7 @@ Diapositivas del curso **Redes Neuronales y Aprendizaje Profundo** (Ingeniería 
 
 ```
 diapositivas_redes_neuronales/
+├── Contenido/       # Temario detallado a partir de las diapositivas
 ├── Slides/          # Fuentes Beamer (.tex), figuras y PDF
 ├── scripts/         # Limpieza de artefactos LaTeX
 └── README.md
@@ -22,7 +24,7 @@ diapositivas_redes_neuronales/
 
 ## Lecciones
 
-Cada fila enlaza al PDF de la presentación.
+Cada fila enlaza al PDF de la presentación. El detalle de temas por lección está en el [temario del contenido](Contenido/temario.md).
 
 | # | Tema | Carpeta | PDF |
 |---|------|---------|-----|
