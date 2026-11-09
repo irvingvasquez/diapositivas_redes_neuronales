@@ -38,10 +38,10 @@ Cada fila enlaza al PDF de la presentación.
 | 08 | Aplicación a clasificación | [`08_Classification`](Slides/08_Classification) | [PDF](Slides/08_Classification/nn_classification.pdf) |
 | 09 | Aspectos del entrenamiento | [`09_training_aspects`](Slides/09_training_aspects) | [PDF](Slides/09_training_aspects/nn_training_aspects.pdf) |
 | 10 | Estrategias de optimización | [`10_Optimization`](Slides/10_Optimization) | [PDF](Slides/10_Optimization/nn_optimization.pdf) |
-| 11 | Diseño de experimentos (DOE) | [`11_DoE`](Slides/11_DoE) | [PDF](Slides/11_DoE/nn_DoE.pdf) |
-| 12 | Redes convolucionales | [`12_Covnets`](Slides/12_Covnets) | [PDF](Slides/12_Covnets/redes_convolucionales.pdf) |
-| 13 | CNN avanzadas / detección YOLO | [`13_Advanced_CNN`](Slides/13_Advanced_CNN) | [PDF](Slides/13_Advanced_CNN/cv2_08_advanced_nn_yolo.pdf) |
-| 14 | Análisis exploratorio de datos (EDA) | [`14_EDA`](Slides/14_EDA) | [PDF](Slides/14_EDA/nn_eda.pdf) |
+| 11 | Redes convolucionales | [`11_Covnets`](Slides/11_Covnets) | [PDF](Slides/11_Covnets/redes_convolucionales.pdf) |
+| 12 | CNN avanzadas / detección YOLO | [`12_Advanced_CNN`](Slides/12_Advanced_CNN) | [PDF](Slides/12_Advanced_CNN/cv2_08_advanced_nn_yolo.pdf) |
+| 13 | Análisis exploratorio de datos (EDA) | [`13_EDA`](Slides/13_EDA) | [PDF](Slides/13_EDA/nn_eda.pdf) |
+| 14 | Diseño de experimentos (DOE) | [`14_DoE`](Slides/14_DoE) | [PDF](Slides/14_DoE/nn_DoE.pdf) |
 | 15 | Transfer learning | [`15_Transfer_Learning`](Slides/15_Transfer_Learning) | [PDF](Slides/15_Transfer_Learning/nn_transfer_learning.pdf) |
 | 17 | Autoencoders | [`17_autoencoders`](Slides/17_autoencoders) | [PDF](Slides/17_autoencoders/nn_autoencoders.pdf) |
 | 18 | Redes recurrentes | [`18_Recurrent`](Slides/18_Recurrent) | [PDF](Slides/18_Recurrent/nn_recurrent.pdf) |
