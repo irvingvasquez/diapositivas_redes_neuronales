@@ -63,13 +63,39 @@
 \end{frame}
 
 
+\begin{frame}{Introduction}
+	\framesubtitle{Formal definition of sequential tasks}
+	Let an input sequence be an ordered list $X = (\mathbf{x}_1, \dots, \mathbf{x}_T)$, with $\mathbf{x}_t \in \mathbb{R}^d$, where the length $T$ may vary from sample to sample. A sequential task consists of learning a mapping $f_\theta$:
+	
+	\vspace{0.3cm}
+	\centering
+	\footnotesize
+	\renewcommand{\arraystretch}{1.4}
+	\begin{tabular}{l l l}
+		\hline
+		\textbf{Task} & \textbf{Mapping} & \textbf{Example} \\
+		\hline
+		Seq2class (many-to-one) & $f_\theta: X \mapsto y,\; y \in \{1, \dots, K\}$ & Sentiment analysis \\
+		Seq2value (many-to-one) & $f_\theta: X \mapsto \mathbf{y},\; \mathbf{y} \in \mathbb{R}^m$ & Stock price forecasting \\
+		Vec2seq (one-to-many) & $f_\theta: \mathbf{x} \mapsto (\mathbf{y}_1, \dots, \mathbf{y}_{T'})$ & Image captioning \\
+		Aligned seq2seq (many-to-many) & $f_\theta: X \mapsto (\mathbf{y}_1, \dots, \mathbf{y}_{T}),\; T' = T$ & Part-of-speech tagging \\
+		Seq2seq (many-to-many) & $f_\theta: X \mapsto (\mathbf{y}_1, \dots, \mathbf{y}_{T'}),\; T' \neq T$ & Machine translation \\
+		\hline
+	\end{tabular}
+	
+	\vspace{0.4cm}
+	%\begin{block}{Key requirement}
+		The model must handle sequences of \textbf{variable length} ($T$ and $T'$) while preserving the \textbf{order} of the elements.
+	%\end{block}
+\end{frame}
 
-\begin{frame}{Motivation}
+
+\begin{frame}{Introduction}
 	\framesubtitle{Usinng feed forward networks in sequential data}
 	\begin{columns}
 		\column{0.5\textwidth}
 		\begin{itemize}
-		\item Feed forward networks (FFN), e.g. the multilayer perceptrion, have fixed input size.
+		\item Feed forward networks (FFN), e.g. the multilayer perceptron, have fixed input size.
 		\item Nevertheless, they can be used as follows:
 		\begin{itemize}
 			\item Size larger than input (the inpunt is filled)

@@ -174,6 +174,7 @@ Contenido de las diapositivas del curso **Redes Neuronales y Aprendizaje Profund
 
 [PDF](../Slides/18_Recurrent/nn_recurrent.pdf)
 
+- Tareas secuenciales: seq2class, seq2value, vec2seq y seq2seq
 - Secuencias, n-gramas neuronales y comparación con redes feedforward
 - RNN y desenrollado en el tiempo
 - Retropropagación a través del tiempo y gradiente que se desvanece

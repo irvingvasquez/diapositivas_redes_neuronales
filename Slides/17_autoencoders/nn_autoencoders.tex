@@ -265,9 +265,9 @@
 	\frametitle{Latent Space: Interpolation \& Arithmetic}
 	\begin{itemize}
 		\item \textbf{Linear interpolation}:
-		\[
-		z_\alpha = (1-\alpha)z_1 + \alpha z_2,\ \ \alpha\in[0,1]
-		\]
+		\begin{equation}
+					z_\alpha = (1-\alpha)z_1 + \alpha z_2,\ \ \alpha\in[0,1]
+		\end{equation}
 		\item Decode $g_\phi(z_\alpha)$ to visualize smooth morphs (e.g., dog $\rightarrow$ bird).
 	\end{itemize}
 \end{frame}
@@ -294,23 +294,12 @@
 % --- LATENT SPACE OPERATIONS ---
 \begin{frame}
 	\frametitle{Latent Space: Interpolation \& Arithmetic}
-	\begin{columns}[T,onlytextwidth]
-		\column{0.52\textwidth}
-		\begin{itemize}
-			\item \textbf{Linear interpolation}:
-			\[
-			z_\alpha = (1-\alpha)z_1 + \alpha z_2,\ \ \alpha\in[0,1]
-			\]
-			\item Decode $g_\phi(z_\alpha)$ to visualize smooth morphs (e.g., dog $\rightarrow$ bird).
-			\item \textbf{Attribute vectors}: $z_{\text{smile}} - z_{\text{neutral}}$; add to new $z$.
-		\end{itemize}
-		\column{0.44\textwidth}
+	\framesubtitle{Attributes in the code}
 		\begin{figure}
 			\centering
-			\includegraphics[height=0.5\textheight]{521_2022_7890_Fig6_HTML}
+			\includegraphics[height=0.7\textheight]{521_2022_7890_Fig6_HTML}
 			\caption{\small Smooth changes along semantic directions}
 		\end{figure}
-	\end{columns}
 \end{frame}
 
 
@@ -392,6 +381,9 @@
 %\end{frame}
 
 
+\section{Regularized autoencoders}
+
+
 \begin{frame}{Regularized autoencoders}
 	\framesubtitle{Notation and organization}
 	\begin{itemize}
@@ -423,8 +415,6 @@
 	\end{itemize}
 \end{frame}
 
-
-\section{Regularized autoencoders}
 
 
 \begin{frame}{Regularized autoencoders}
@@ -491,7 +481,6 @@
 	\begin{itemize}
 		\item \textbf{Robust Feature Extraction}: Scenarios where the input data contains noise or slight variations (e.g., small shifts or rotations in images), as the model is penalized for changing its embedded when the input changes slightly.
 		\item \textbf{Learning Stable Features}: By enforcing local invariance, CAEs learn features that are stable, making them valuable for tasks like transfer learning.
-		\item \textbf{Improving Deep Network Performance}: The features learned by a CAE can be used to initialize the weights of deeper supervised networks, providing a robust starting point that often leads to faster convergence and better final performance compared to random initialization.
 	\end{itemize}
 	\centering
 \end{frame}
